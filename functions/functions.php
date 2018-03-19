@@ -197,7 +197,21 @@ function getDetails(){
 	}
 }
 
+function passwordCorrect($username, $password) {
+    include "mysqlconnect.php";
+    $sql = "select * from Users where username='$username'";
+    $result = $conn->query($sql);
+
+    while($row = $result->fetch_assoc()){
+        if ($row['password'] == $password && $row['username'] == $username) return true;
+    }
+
+    return false;
+    
+}
+
 function userExists($username){
+    include 'mysqlconnect.php';
     $sql = "select * from Users where username='$username'";
     $result = $conn->query($sql);
 
@@ -207,19 +221,18 @@ function userExists($username){
 
     return false;
 
-    $conn->close();
 }
 
 function createUser($username, $password){
-
+    include 'mysqlconnect.php';
     if (userExists($username)) {
-        // error out
+        return false;
     } else {
         $sql = "INSERT INTO Users (username, password) VALUES ($username, $password)";
         $result = $conn->query($sql);
+        return true;
     }
 
-    $conn->close();
 }
 
 
