@@ -29,7 +29,7 @@ include("functions/functions.php");
 				<li><a href="#">My Account</a></li>
 				<li><a href="./auth/sign_up.php">Sign Up</a></li>
 				<li><a href="./auth/login.php">Log In</a></li>
-				<li><a href="cart.php">Shopping Cart</a></li>
+				<li><a href="#">Shopping Cart</a></li>
 				<li><a href="#">Contact Us</a></li>
 			</ul>
 			
@@ -65,7 +65,19 @@ include("functions/functions.php");
 				</div>
 			
 				<div id="products_box">
-					<?php getProducts();?>
+					<form action="" method="post" enctype="multipart/form-data">
+						<table align="center" width="700px" bgcolor="skyblue">
+							<tr align="center">
+								<th colspan="5">Update your cart or checkout</th>
+							</tr>
+							<tr align="center">
+								<th>Remove</th>
+								<th>Quantity</th>
+								<th>Price</th>
+							</tr>
+						</table>
+					
+					</form>
 				</div>
 			
 			

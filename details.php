@@ -29,7 +29,7 @@ include("functions/functions.php");
 				<li><a href="#">My Account</a></li>
 				<li><a href="./auth/sign_up.php">Sign Up</a></li>
 				<li><a href="./auth/login.php">Log In</a></li>
-				<li><a href="#">Shopping Cart</a></li>
+				<li><a href="cart.php">Shopping Cart</a></li>
 				<li><a href="#">Contact Us</a></li>
 			</ul>
 			
@@ -56,11 +56,11 @@ include("functions/functions.php");
 			</div>
 
 			<div id="content_area">
-			
+				<?php cart();?>
 				<div id="shopping_cart">
 					<span style="float:right; font-size:18px; padding:5px; line-height:40px;" >
 					
-						Welcome, Guest! <b style="color:yellow">Shopping Cart - </b> Total Items: Total Price:  <a href="cart.php" style="color:yellow;">Go to Cart</a>
+						Welcome, Guest! <b style="color:yellow">Shopping Cart - </b> Total Items: <?php total_items() ?>Total Price:  $<?php total_price() ?><a href="cart.php" style="color:yellow;">Go to Cart</a>
 					</span>
 				</div>
 			

@@ -2,6 +2,55 @@
 
 include 'mysqlconnect.php';
 
+
+function cart() {
+	include 'mysqlconnect.php';
+	//I'm tracking users by ip address but this should probably be by username?
+	$userIdentity = getIP();
+	
+	if(isset($_GET["add_cart"])){
+		$product_id = $_GET["add_cart"];
+		$productPrice = $_GET["price"];
+		$sql = "SELECT * FROM Cart where ip_address='$uerIdentity' AND product_id='$product_id'";
+		$result = $conn->query($sql);
+		if($result->num_rows > 0){
+			echo "";
+		}
+		else {
+			
+			$sql = "INSERT INTO Cart (product_id, ip_address,total_price) VALUES ($product_id,'$userIdentity',$productPrice)";
+			$result = $conn->query($sql);			
+			echo "<script>window.open('index.php','_self');</script>";
+		}
+	}
+}
+
+function total_items(){
+	
+	
+		include 'mysqlconnect.php';
+		$ip = getIP();
+		
+		$sql = "select * from Cart where ip_address='$ip'";
+		$result = $conn->query($sql);
+		
+		$itemCount = $result->num_rows;
+		echo $itemCount;
+	
+}
+
+function total_price() {
+	include 'mysqlconnect.php';
+	
+	$ip=getIP();
+	$sql = "select SUM(total_price) as 'total' from Cart where ip_address='$ip'";
+	$result = $conn->query($sql);
+	$row = $result->fetch_assoc();
+	$total = $row["total"];
+	echo $total;
+	
+}
+
 function getCategories(){
 	include 'mysqlconnect.php';
 	$sql = "SELECT * FROM Categories";
@@ -64,7 +113,7 @@ function getProducts(){
 					<p><b>$$productPrice</b></p>
 					<div id='detailandcart'>
 						<a href='details.php?product_id=$productId' style='float:left;'>Details</a>
-						<a href='index.php?product_id=$productId'><button style='float:right'>Add To Cart</button></a>
+						<a href='index.php?add_cart=$productId&price=$productPrice'><button style='float:right'>Add To Cart</button></a>
 					</div>
 				</div>
 							
@@ -118,7 +167,7 @@ function getDetails(){
 					<p>$productDescription</p>
 					<p>
 						<a href='index.php' style='float:left;'>Go Back</a>
-						<a href='index.php?product_id=$productId'><button style='float:right'>Add To Cart</button></a>
+						<a href='index.php?product_id=$productId&price=$product_price'><button style='float:right'>Add To Cart</button></a>
 					</p>
 				</div>
 							
@@ -153,6 +202,23 @@ function createUser($username, $password){
 }
 
 
+function getIP()
+{
+	//courtesy of http://itman.in/en/how-to-get-client-ip-address-in-php/
+    if (!empty($_SERVER['HTTP_CLIENT_IP']))   //check ip from share internet
+    {
+      $ip=$_SERVER['HTTP_CLIENT_IP'];
+    }
+    elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR']))   //to check ip is pass from proxy
+    {
+      $ip=$_SERVER['HTTP_X_FORWARDED_FOR'];
+    }
+    else
+    {
+      $ip=$_SERVER['REMOTE_ADDR'];
+    }
+    return $ip;
+}
 
 
 
