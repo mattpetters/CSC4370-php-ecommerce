@@ -10,9 +10,9 @@
         <input type="text" name="username">
         <br>
         <label for="password">Password</label>
-        <input type="text" name="password">
+        <input type="password" name="password">
         <br>
-        <input type="submit">
+        <input type="submit" name="submit">
 </form>
 </body>
 </html>
