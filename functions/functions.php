@@ -53,6 +53,44 @@ function getProducts(){
 	}
 }
 
+function getDetails(){
+	include 'mysqlconnect.php';
+	$product_id;
+	
+	if(isset($_GET['product_id'])){
+		$product_id = $_GET['product_id'];
+	}
+	
+	$sql = "SELECT * FROM Products where product_id='$product_id'";
+	$result = $conn->query($sql);
+	
+	if($result->num_rows >0) {
+		while($row = $result->fetch_assoc()){
+			$productId = $row["product_id"];
+			$productTitle = $row["product_title"];			
+			$productPrice = $row["product_price"];
+			$productDescription = $row["product_description"];
+			$productImage = $row["product_image"];
+			
+			echo "
+				
+				<div id='single_product'>
+				
+					<div id='prodTitle'>$productTitle</div>
+					<img src='images/$productImage' width='50%' height='50%'>
+					<p><b>$$productPrice</b></p>
+					<p>$productDescription</p>
+					<p>
+						<a href='index.php' style='float:left;'>Go Back</a>
+						<a href='index.php?product_id=$productId'><button style='float:right'>Add To Cart</button></a>
+					</p>
+				</div>
+							
+			";
+		}
+	}
+}
+
 function userExists($username){
     $sql = "select * from Users where username='$username'";
     $result = $conn->query($sql);

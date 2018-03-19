@@ -64,9 +64,9 @@ include("functions/functions.php");
 					</span>
 				</div>
 			
-				<div id="products_box">
-					<?php getProducts();?>
-				</div>
+				
+					<?php getDetails();?>
+				
 			
 			
 			</div>

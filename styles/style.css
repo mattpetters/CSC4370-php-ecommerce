@@ -44,13 +44,13 @@ body {
 
 .header_wrapper{
 	width:1000px;
-	height:100px;
+	height:auto;
 	margin:auto;
 }
 
 .content_wrapper{
 	width:1000px;
-	height:800px;
+	height:auto;
 	margin:auto;
 	background:pink;
 	
@@ -132,9 +132,6 @@ body {
 	border:2px solid black;
 }
 
-#single_product p {
-	height:5px;
-}
 
 #prodTitle{
 	text-align:center;
