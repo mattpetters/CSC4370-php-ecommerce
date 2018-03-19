@@ -39,15 +39,15 @@ function getProducts(){
 				
 				<div id='single_product'>
 				
-					<div id=prodTitle>$productTitle</div>
-					<img src='images/$productImage' width='150px' height='150px'>
+					<div id='prodTitle'>$productTitle</div>
+					<img src='images/$productImage' width='100px' height='100px'>
 					<p><b>$$productPrice</b></p>
-					<a href='details.php?product_id=$productId' style='float:left;'>Details</a>
-					<a href='index.php?product_id=$productId'><button style='float:right'>Add To Cart</button></a>
+					<div id='detailandcart'>
+						<a href='details.php?product_id=$productId' style='float:left;'>Details</a>
+						<a href='index.php?product_id=$productId'><button style='float:right'>Add To Cart</button></a>
+					</div>
 				</div>
-				
-			
-			
+							
 			";
 		}
 	}
