@@ -1,0 +1,22 @@
+fieldset {
+	border: 0;
+}
+
+.container {
+	height: 100%;
+	display: grid;
+	margin: auto;
+}
+
+#main-container {
+	border: solid 1px black;
+}
+
+.ccjs-num, .ccjs-csc, .csjs-name {
+	margin-left: 1em;
+	margin-right: 1em;
+}
+
+.ccjs-month {
+
+}
