@@ -20,3 +20,12 @@ fieldset {
 .ccjs-month {
 
 }
+
+.baypal-email, .baypal-password {
+	margin-left: .5em;	
+	margin-right: .5em;	
+}
+
+.input-baypayl-email, .input-baypal-password {
+	padding-left: 1em;
+}

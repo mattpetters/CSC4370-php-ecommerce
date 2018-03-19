@@ -17,12 +17,14 @@
                 <img >
                 <p id="msg">This is secure with blah blabh blabh-bit ESL. Encryptment payment. You are kinda safe.</p>
                 <form class="form-container" id="main-form-container">
-			<input type="radio" name="payment" value="card" id="creditcard" checked> Credit card (VISA, Mastercard)
-			<input type="radio" name="payment" value="paypal" id="paypal"> PayPal
+			<input type="radio" name="payment" value="card" id="creditcard" > Credit card (VISA, Mastercard)
+			<input type="radio" name="payment" value="baypal" id="baypal"> BayPal
 			<pre id="logs"></pre>
 			<div id="enter-form">
 			</div>
 			<input type="submit" value="submit">
+			<div class="popup-ui" id="typeCard">
+			</div>
                 </form>
             </div>
         </div>
