@@ -8,20 +8,24 @@
 <?php 
     include ("../functions/functions.php");
     //check if user exists
-if (userExists($_POST["username"]){
-    echo "User found...";
-    if(passwordCorrect($_POST["username"], $_POST["password"])){
-        echo "Password correct...";
-        session_start();
-        $_SESSION["username"] = $_POST["username"];
-        header('Location: index.php');
-        exit();  
+    $user = $_POST["login_username"];
+    echo $user;
+    $userFound = userExists($user); 
+    echo $userFound;
+    if ($userFound){
+        echo "User found...";
+        if(passwordCorrect($_POST["login_username"], $_POST["login_password"])){
+            echo "Password correct...";
+            session_start();
+            $_SESSION["username"] = $_POST["login_username"];
+            header('Location: ../index.php');
+            exit();  
+        } else {
+            echo "Credentials invalid.";
+        } 
     } else {
-        echo "Credentials invalid.";
-    } 
-} else {
-    echo "User not found.";
-}
+        echo "User not found.";
+    }
 ?>
 </body>
 </html>

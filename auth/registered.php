@@ -7,14 +7,14 @@
 <body>
 <?php
     include ("../functions/functions.php");
-    $username = $_POST['username'];
-    $pass = $_POST['password'];
+    $username = $_POST['login_username'];
+    $pass = $_POST['login_password'];
 
     $userCreated = createUser($username, $pass);
 
     if($userCreated){
         echo "User created successfully!";
-        header("Location: index.php");
+        header("Location: ../index.php");
         exit();
     } else {
         echo "An error occurred";
