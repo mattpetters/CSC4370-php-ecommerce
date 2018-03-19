@@ -23,11 +23,18 @@ function getCategories(){
 function getProducts(){
 	include 'mysqlconnect.php';
 	
-	if(!isset($_GET["category"])){
+	$selectedCategory = $_GET["category"];
+	
+	if(!isset($selectedCategory)){
 		$sql = "SELECT * FROM Products order by RAND() LIMIT 0,6";
 	}
 	else {
-		$sql = "SELECT * FROM Products where product_category='" . $_GET["category"] ."'";
+		if($selectedCategory == "all"){
+			$sql = "SELECT * FROM Products";
+		}
+		else {
+			$sql = "SELECT * FROM Products where product_category='$selectedCategory'";
+		}
 	}
 		
 	//$sql = "SELECT * FROM Products order by RAND() LIMIT 0,6";
@@ -59,6 +66,15 @@ function getProducts(){
 							
 			";
 		}
+	}
+	else {
+
+		$sql = "SELECT * FROM Categories where category_id=$selectedCategory";		
+		$result = $conn->query($sql);
+		$row = $result->fetch_assoc();
+		$category_name = $row["category_title"];
+		
+		echo "<h2>We don't have any $category_name books yet</h2>";
 	}
 		
 
