@@ -55,7 +55,14 @@ include("functions/functions.php");
 			
 			</div>
 
-			<div id="content_area">Content</div>
+			<div id="content_area">
+			
+				<div id="products_box">
+					<?php getProducts();?>
+				</div>
+			
+			
+			</div>
 
 			<div id="footer">Footer</div>
 		</div>
