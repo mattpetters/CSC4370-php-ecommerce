@@ -27,7 +27,8 @@ include("functions/functions.php");
 				<li><a href="#">Home</a></li>
 				<li><a href="#">All Products</a></li>
 				<li><a href="#">My Account</a></li>
-				<li><a href="#">Sign Up</a></li>
+				<li><a href="sign_up.php">Sign Up</a></li>
+				<li><a href="login.php">Log In</a></li>
 				<li><a href="#">Shopping Cart</a></li>
 				<li><a href="#">Contact Us</a></li>
 			</ul>
