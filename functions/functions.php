@@ -51,6 +51,27 @@ function total_price() {
 	
 }
 
+function fillCart(){
+	include 'mysqlconnect.php';
+	$ip = getIP();
+	$sql = "select Cart.product_id as 'productId', ip_address, total_price, product_title, product_image from Cart join Products on Cart.product_id = Products.product_id where ip_address='$ip'";
+	$result = $conn->query($sql);
+	
+	while($row = $result->fetch_assoc()){
+		$product_title = $row["product_title"];
+		$product_price = $row["total_price"];
+		$product_image = $row["product_image"];
+		$product_id = $row["productId"];
+		 echo "<tr>";
+		 echo "<td><input type='checkbox' name='remove[]' value='$product_id'></td>";
+		 echo "<td>$product_title<br><img src='images/$product_image' width='50px' height='50px'></td>";
+		 echo "<td>$$product_price</td>";
+		 echo "</tr>";
+		   
+	}
+	
+}
+
 function getCategories(){
 	include 'mysqlconnect.php';
 	$sql = "SELECT * FROM Categories";
