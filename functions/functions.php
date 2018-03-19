@@ -10,8 +10,9 @@ function getCategories(){
 	
 	if ($result->num_rows > 0) {
        while($row = $result->fetch_assoc()){
+		   $categoryId = $row["category_id"];
 		   echo "\n\t\t\t";
-		   echo '<li><a href="#">' . $row["category_title"] . '</a></li>';
+		   echo '<li><a href="index.php?category=' . $categoryId . '">' . $row["category_title"] . '</a></li>';
 		   
 	   }
 	}
@@ -21,7 +22,15 @@ function getCategories(){
 
 function getProducts(){
 	include 'mysqlconnect.php';
-	$sql = "SELECT * FROM Products order by RAND() LIMIT 0,6";
+	
+	if(!isset($_GET["category"])){
+		$sql = "SELECT * FROM Products order by RAND() LIMIT 0,6";
+	}
+	else {
+		$sql = "SELECT * FROM Products where product_category='" . $_GET["category"] ."'";
+	}
+		
+	//$sql = "SELECT * FROM Products order by RAND() LIMIT 0,6";
 	$result = $conn->query($sql);
 	
 	if($result->num_rows >0) {
@@ -51,6 +60,8 @@ function getProducts(){
 			";
 		}
 	}
+		
+
 }
 
 function getDetails(){
