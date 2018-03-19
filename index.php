@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
 
-include("functions/functions.php");
+include("./functions/functions.php");
 
 ?>
 
@@ -9,7 +9,7 @@ include("functions/functions.php");
 <head>
 <title>Project 3 Ecommerce Site</title>
 
-<link rel="stylesheet" href="styles/style.css" media="all" />
+<link rel="stylesheet" href="./styles/style.css" media="all" />
 </head>
 <body>
 
@@ -73,14 +73,6 @@ include("functions/functions.php");
 
 			<div id="footer">Footer</div>
 		</div>
-
-
-
-
     </div>
-
-
-
-
 </body>
 </html>

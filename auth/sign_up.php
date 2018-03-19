@@ -5,7 +5,7 @@
     <title>Sign Up</title>
 </head>
 <body>
-<form action="registered.php" method="post">
+<form action="" method="post">
         <label for="username">Username</label>
         <input type="text" name="username">
         <br>
@@ -14,5 +14,13 @@
         <br>
         <input type="submit">
 </form>
+<?php
+    $username = $_POST['username'];
+    $pass = $_POST['password'];
+
+    createNewUser($username, $pass);
+    
+?>
+    
 </body>
 </html>
