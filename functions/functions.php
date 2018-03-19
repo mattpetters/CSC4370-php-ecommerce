@@ -232,6 +232,7 @@ function createUser($username, $password){
     if (userExists($username)) {
         return false;
     } else {
+        echo "Inserting into DB";
         $sql = "INSERT INTO Users (username, password) VALUES ('$username', '$password')";
         $result = $conn->query($sql);
         return true;

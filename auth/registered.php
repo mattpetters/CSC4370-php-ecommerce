@@ -10,6 +10,8 @@
     $username = $_POST['username'];
     $pass = $_POST['password'];
 
+    echo $username;
+    echo $pass;
     $userCreated = createUser($username, $pass);
 
     if($userCreated){
