@@ -1,10 +1,8 @@
 <?php
 
+include 'mysqlconnect.php';
 
-//getting the categories
 function getCategories(){
-	
-	include 'mysqlconnect.php';
 
 	$sql = "SELECT * FROM Categories";
 	$result = $conn->query($sql);
@@ -19,6 +17,31 @@ function getCategories(){
 	}
 	
 	$conn->close();
+}
+
+function userExists($username){
+    $sql = "select * from Users where username='$username'";
+    $result = $conn->query($sql);
+
+    while($row = $result->fetch_assoc()){
+        if $row['username'] == $username return true;
+    }
+
+    return false;
+
+    $conn->close();
+}
+
+function createUser($username, $password){
+
+    if (userExists($username)) {
+        // error out
+    } else {
+        $sql = "INSERT INTO Users (username, password) VALUES ($username, $password)";
+        $result = $conn->query($sql);
+    }
+
+    $conn->close();
 }
 
 
