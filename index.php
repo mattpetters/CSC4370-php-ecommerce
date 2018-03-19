@@ -24,7 +24,7 @@ include("functions/functions.php");
 		<div class="menubar">
 		
 			<ul id="menu">
-				<li><a href="#">Home</a></li>
+				<li><a href="index.php">Home</a></li>
 				<li><a href="index.php?category=all">All Products</a></li>
 				<li><a href="#">My Account</a></li>
 				<li><a href="./auth/sign_up.php">Sign Up</a></li>
@@ -34,7 +34,7 @@ include("functions/functions.php");
 			</ul>
 			
 			<div id="form">
-				<form method="get" action = "results.php" enctype="multipart/form-data">
+				<form method="get" action = "index.php" enctype="multipart/form-data">
 					<input type="text" name="user_query" placeholder="Search for a product...">
 					<input type="submit" name="search" value="Search">
 				</form>

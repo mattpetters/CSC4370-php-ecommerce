@@ -24,8 +24,8 @@ include("functions/functions.php");
 		<div class="menubar">
 		
 			<ul id="menu">
-				<li><a href="#">Home</a></li>
-				<li><a href="#">All Products</a></li>
+				<li><a href="index.php">Home</a></li>
+				<li><a href="index.php?category=all">All Products</a></li>
 				<li><a href="#">My Account</a></li>
 				<li><a href="./auth/sign_up.php">Sign Up</a></li>
 				<li><a href="./auth/login.php">Log In</a></li>

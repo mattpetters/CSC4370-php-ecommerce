@@ -25,7 +25,11 @@ function getProducts(){
 	
 	$selectedCategory = $_GET["category"];
 	
-	if(!isset($selectedCategory)){
+	if(isset($_GET['search'])){
+		$search_query = $_GET["user_query"];
+		$sql = "SELECT * FROM Products where product_keywords like '%$search_query%'";
+	}	
+	else if(!isset($selectedCategory)){
 		$sql = "SELECT * FROM Products order by RAND() LIMIT 0,6";
 	}
 	else {
@@ -69,12 +73,17 @@ function getProducts(){
 	}
 	else {
 
-		$sql = "SELECT * FROM Categories where category_id=$selectedCategory";		
-		$result = $conn->query($sql);
-		$row = $result->fetch_assoc();
-		$category_name = $row["category_title"];
-		
-		echo "<h2>We don't have any $category_name books yet</h2>";
+		if(isset($_GET['search'])){
+			echo "No Results Found";
+		}
+		else{
+			$sql = "SELECT * FROM Categories where category_id=$selectedCategory";		
+			$result = $conn->query($sql);
+			$row = $result->fetch_assoc();
+			$category_name = $row["category_title"];
+			
+			echo "<h2>We don't have any $category_name books yet</h2>";
+		}
 	}
 		
 
